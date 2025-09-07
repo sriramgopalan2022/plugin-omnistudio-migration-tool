@@ -59,7 +59,7 @@ export class ValidatorService {
       if (result?.records && result?.records?.length > 0) {
         // Since we only get one record with the total count, check if count > 0
         const totalCount = Number(result.records[0].total);
-        if (totalCount > 0) {
+        if (totalCount >= 0) {
           return true;
         }
       }

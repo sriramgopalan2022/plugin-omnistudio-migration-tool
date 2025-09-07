@@ -2,11 +2,15 @@
   "name": "@salesforce/plugin-omnistudio-migration-tool",
   "description": "This SFDX plugin migrates FlexCard, OmniScript, DataRaptor, and Integration Procedure custom objects to standard objects.",
   "version": "2.0.0-rc.45",
+  "type": "commonjs",
   "author": "Salesforce",
   "bugs": "https://github.com/forcedotcom/cli/issues",
   "dependencies": {
     "@apexdevtools/apex-parser": "^4.1.0",
+    "@babel/parser": "^7.25.6",
+    "@babel/traverse": "^7.25.6",
     "@babel/types": "^7.25.6",
+    "@modelcontextprotocol/sdk": "^1.0.0",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/errors": "^1",
@@ -19,12 +23,11 @@
     "cli-progress": "^3.12.0",
     "diff": "^5.1.0",
     "jsdom": "^25.0.0",
+    "jsforce": "^1.11.1",
     "lodash.chunk": "^4.2.0",
     "open": "^8.4.2",
     "shelljs": "^0.8.5",
-    "tslib": "^2",
-    "@babel/parser": "^7.25.6",
-    "@babel/traverse": "^7.25.6"
+    "tslib": "^2"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
@@ -62,6 +65,7 @@
     "puppeteer": "^24.12.1",
     "sinon": "10.0.0",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.5",
     "typescript": "^4.9.5"
   },
   "resolutions": {
@@ -148,7 +152,8 @@
     "test:command-reference": "./bin/run commandreference:generate --erroronwarnings",
     "test:deprecation-policy": "./bin/run snapshot:compare",
     "test:nuts": "nyc mocha \"**/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
-    "version": "oclif-dev readme"
+    "version": "oclif-dev readme",
+    "cli": "tsx src/mcp/cli.ts"
   },
   "publishConfig": {
     "access": "public"

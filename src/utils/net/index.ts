@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { Connection } from '@salesforce/core';
-import chunk = require('lodash.chunk');
+import chunk from 'lodash.chunk';
 import { UploadRecordResult } from '../../migration/interfaces';
 
 class NetUtils {

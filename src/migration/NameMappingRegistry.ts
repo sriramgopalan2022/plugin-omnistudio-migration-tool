@@ -151,8 +151,9 @@ export class NameMappingRegistry {
   public getOmniScriptCleanedName(type: string, subType: string, language: string | 'English'): string {
     const originalName = `${type}_${subType}_${language}`;
     // Check if we have a mapping for this OmniScript first
-    if (this.omniScriptMappings.has(originalName)) {
-      return this.omniScriptMappings.get(originalName)!;
+    const mappedName = this.omniScriptMappings.get(originalName);
+    if (mappedName !== undefined) {
+      return mappedName;
     }
     // Fallback to cleaning individual parts
     const cleanedType = Stringutil.cleanName(type);
